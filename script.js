@@ -32,3 +32,4 @@ function mostraAlternativas(){
         caixaAlternativa.appendChild(botaoAlternativas);
     }
 }
+mostraPergunta();
