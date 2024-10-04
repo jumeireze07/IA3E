@@ -61,8 +61,13 @@ function mostraAlternativas(){
 }
 function respostasSelecionadas(opcaoSeleciomadas){
     const afirmaçâo = opcaoSeleciomadas.afirmaçâo 
-    resposta = afirmacoes;
+    resposta += afirmacoes + " ";
     posicao++,
     mostraPergunta();
+}
+function mostraResultado(){
+    caixaPergunta.textContent = "Daqui a 10 anos..."
+    textoResultado.textContent = resposta;
+    caixaAlternativa.textContent = "";
 }
 mostraPergunta();
