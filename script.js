@@ -36,25 +36,33 @@ const perguntas = [//abre a lista de objetos (itens)
         afirmaçâo:"nâo,pois nao sei o basico da tecnologia"}
     ]
     },
-    
-
-
-    
-
 ]
-let posicao = 0;
-let perguntaAtual;
+    let posicao = 0;
+    let perguntaAtual;
+    let resposta ="";
 
 function mostraPergunta(){
+    if (posicao>=perguntas.length){
+        mostraResultado();
+        return;
+    }
     perguntaAtual = perguntas[posicao];
     caixaPergunta.textContent = perguntaAtual.enunciado;  
+    caixaAlternativa.textContent =" ";
     mostraAlternativas();
 }
 function mostraAlternativas(){
-    for(const alternativa of perguntaAtual.alternativa){
+    for(const alternativa of perguntaAtual.alternativas) {
         const botaoAlternativas = document.createElement("button");
-        botaoAlternativas.textContent = alternativa;
+        botaoAlternativas.textContent = alternativa.texto;
+        caixaAlternativa.addEventListener("click",()=> respostasSelecionadas(alternativa));
         caixaAlternativa.appendChild(botaoAlternativas);
     }
+}
+function respostasSelecionadas(opcaoSeleciomadas){
+    const afirmaçâo = opcaoSeleciomadas.afirmaçâo 
+    resposta = afirmacoes;
+    posicao++,
+    mostraPergunta();
 }
 mostraPergunta();
