@@ -22,7 +22,7 @@ const perguntas = [//abre a lista de objetos (itens)
             afirmaçâo:"sim,pois sei ultilizar de modo essencial"
         },
       {  texto:"Nâo",
-        afirmaçâo:"Nâo,pois de modo denecessaro"}
+        afirmaçâo:"Nâo,pois uso de modo denecessaro"}
     ]
     
     },
