@@ -24,21 +24,21 @@ const perguntas = [//abre a lista de objetos (itens)
             afirmação: "sim,porque amo fazer carinhos no dog"
         },
         {
-            texto: "Nâo",
+            texto: "Não,gosto de cachorro",
             afirmação: "Nâo,porque ele fica lambendo"
         }
         ]
 
     },
     {
-        enunciado: "Você sabe mexer com as tecnilogia nova? ",
+        enunciado: "Você gosta de cavalo? ",
         alternativas: [{
-            texto: "sim",
-            afirmação: "sim,pois faço cursinho de tecnologia"
+            texto: "sim,eu adoro cavalo",
+            afirmação: "sim,eu adoro montar na jade minha egua"
         },
         {
-            texto: "nao",
-            afirmação: "nâo,pois nao sei o basico da tecnologia"
+            texto: "não,gosto de cavalo",
+            afirmação: "não,pois tenho medo de cair"
         }
         ]
     }
