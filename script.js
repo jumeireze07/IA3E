@@ -2,72 +2,79 @@ const caixaPrincipal = document.querySelector('.caixa-principal');
 const caixaPergunta = document.querySelector('.caixa-pergunta');
 const caixaAlternativa = document.querySelector('.caixa-alternativa');
 const caixaResultado = document.querySelector('.caixa-resultado');
+const textoResultado = document.querySelector('.texto-resultado');
 
 const perguntas = [//abre a lista de objetos (itens)
     {//abre o item
-        enunciado:"Você gosta da Inteligencia Artificial?",
-        alternativas:[{
-            texto:"sim",
-            afirmaçâo:"sim,porque me ajudar a me informar  "
+        enunciado: "Você gosta de animais?",
+        alternativas: [{
+            texto: "sim,eu amo bichos",
+            afirmação: "sim,porque os animais sao amigos dos homens  "
         },
-       { texto:"Nâo",
-        afirmaçâo:"Nâo,pois e dificil de mexer"
-    }
-    ]
+        {
+            texto: "Nâo,gosto de bichos",
+            afirmação: "Nâo,porque tenho alergia"
+        }
+        ]
     },
     {
-        enunciado:"Você sabe ultilizar a internet de modo adequado?",
-        alternativas:[{
-            texto:"sim",
-            afirmaçâo:"sim,pois sei ultilizar de modo essencial"
+        enunciado: "Gosta de cachorro?",
+        alternativas: [{
+            texto: "sim,amo cachorro",
+            afirmação: "sim,porque amo fazer carinhos no dog"
         },
-      {  texto:"Nâo",
-        afirmaçâo:"Nâo,pois uso de modo denecessaro"}
-    ]
-    
-    },
-    {
-        enunciado:"Você sabe mexer com as tecnilogia nova? ",
-        alternativas:[{
-            texto:"sim",
-            afirmaçâo:"sim,pois faço cursinho de tecnologia"
-        },
-       { texto:"nao",
-        afirmaçâo:"nâo,pois nao sei o basico da tecnologia"}
-    ]
-    },
-]
-    let posicao = 0;
-    let perguntaAtual;
-    let resposta ="";
+        {
+            texto: "Nâo",
+            afirmação: "Nâo,porque ele fica lambendo"
+        }
+        ]
 
-function mostraPergunta(){
+    },
+    {
+        enunciado: "Você sabe mexer com as tecnilogia nova? ",
+        alternativas: [{
+            texto: "sim",
+            afirmação: "sim,pois faço cursinho de tecnologia"
+        },
+        {
+            texto: "nao",
+            afirmação: "nâo,pois nao sei o basico da tecnologia"
+        }
+        ]
+    }
+]
+let posicao = 0;
+let perguntaAtual;
+let respostas = "";
+
+
+function mostraPergunta() {
     if (posicao>=perguntas.length){
         mostraResultado();
         return;
     }
     perguntaAtual = perguntas[posicao];
-    caixaPergunta.textContent = perguntaAtual.enunciado;  
-    caixaAlternativa.textContent =" ";
+    caixaPergunta.textContent = perguntaAtual.enunciado;
+    caixaAlternativa.textContent = " ";
     mostraAlternativas();
 }
-function mostraAlternativas(){
-    for(const alternativa of perguntaAtual.alternativas) {
+function mostraAlternativas() {
+    for (const alternativa of perguntaAtual.alternativas) {
         const botaoAlternativas = document.createElement("button");
         botaoAlternativas.textContent = alternativa.texto;
-        caixaAlternativa.addEventListener("click",()=> respostasSelecionadas(alternativa));
+        botaoAlternativas.addEventListener("click",  () => respostasSelecionadas(alternativa));
         caixaAlternativa.appendChild(botaoAlternativas);
     }
 }
-function respostasSelecionadas(opcaoSeleciomadas){
-    const afirmaçâo = opcaoSeleciomadas.afirmaçâo 
-    resposta += afirmacoes + " ";
-    posicao++,
+function respostasSelecionadas(opcaoSelecionada){
+    const afirmacoes = opcaoSelecionada.afirmação;
+    respostas += afirmacoes + " ";
+    posicao++;
     mostraPergunta();
 }
 function mostraResultado(){
-    caixaPergunta.textContent = "Daqui a 10 anos..."
-    textoResultado.textContent = resposta;
+    caixaPergunta.textContent = "Confira suas respostas: ";
+    textoResultado.textContent = respostas; 
     caixaAlternativa.textContent = "";
 }
 mostraPergunta();
